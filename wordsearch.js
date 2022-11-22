@@ -1,4 +1,4 @@
-
+// Pair programming with Andrew Brown
 const wordSearch = (letters, word) => {
 
   if (letters.length === 0) {
