@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const wordSearch = require('../wordsearch.js')
+const wordSearch = require('../wordsearch.js');
 
 describe("#wordSearch()", function() {
   it("should return false if the word is not present", function() {
@@ -15,7 +15,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -31,8 +31,32 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'SEINFELD')
+    ], 'SEINFELD');
 
     assert.isTrue(result);
+  });
+
+  it("should return true if Arrest is present", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'N', 'F', 'E', 'R', 'D'],
+      ['H', 'F', 'C', 'F', 'Q', 'U', 'R', 'L'],
+      ['A', 'M', 'J', 'T', 'E', 'V', 'E', 'G'],
+      ['R', 'H', 'C', 'S', 'Y', 'E', 'S', 'L'],
+      ['E', 'F', 'R', 'E', 'N', 'E', 'T', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'ARREST');
+
+    assert.isTrue(result);
+  });
+
+
+  it("should return 'Oh no! Your wordsearch is empty!' if matrix is empty.", function() {
+    const result = wordSearch([
+    ], 'Oh no! Your wordsearch is empty!');
+
+    assert.equal(result, 'Oh no! Your wordsearch is empty!');
   });
 });
